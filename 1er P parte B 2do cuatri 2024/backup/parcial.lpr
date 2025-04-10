@@ -18,8 +18,8 @@ var
 begin
      n:=0;
               //Supongo que el archivo es valido, es decir al menos el primer DNI debe ser valido
-              writeln('Ingrese DNI');readln(DNI);
-     repeat
+     writeln('Ingrese DNI');readln(DNI);
+     repeat   //Hubiese sido mejor usar un while directamente, ya que tambien valido que no venga vacio
            begin
                 writeln('Ingrese cant. de parcelas a informar'); readln(parcelas);
                 for i:=1 to parcelas do

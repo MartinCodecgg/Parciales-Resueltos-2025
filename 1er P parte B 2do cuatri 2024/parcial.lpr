@@ -6,10 +6,6 @@ Type
     st8 = string[8];
     TV = array[1..TOP] of byte;
 
-var
-   Vhas,Vt,Va,Vc:TV;
-   n,x:byte;
-
 Procedure Leer(Var Vhas,Vt,Va,Vc:TV; Var n:byte);
 var
    DNI:st8; tipo:char;
@@ -77,6 +73,10 @@ begin
            end;
                Rinde:=cond;
 end;
+
+var
+   Vhas,Vt,Va,Vc:TV;
+   n,x:byte;
 
 begin
      //Almacenar
