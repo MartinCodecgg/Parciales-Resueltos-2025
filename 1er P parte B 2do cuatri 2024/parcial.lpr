@@ -3,92 +3,134 @@ program parcial;
 const TOP = 100;
 
 Type
-    st8 = string[8];
-    TV = array[1..TOP] of byte;
+    TV1 = array[1..TOP] of byte;
+    TVdem = array[1..TOP] of real;
+    TVW = array[1..TOP] of word;
+    st16 = string[16];
 
-Procedure Leer(Var Vhas,Vt,Va,Vc:TV; Var n:byte);
+function Buscar(Vli:TV1; n,licen:byte):byte;
 var
-   DNI:st8; tipo:char;
-   parcelas,has,tons,i:byte;
-
+   i:byte;
 begin
-     n:=0;
-              //Supongo que el archivo es valido, es decir al menos el primer DNI debe ser valido
-     writeln('Ingrese DNI');readln(DNI);
-     repeat   //Hubiese sido mejor usar un while directamente, ya que tambien valido que no venga vacio
-           begin
-                writeln('Ingrese cant. de parcelas a informar'); readln(parcelas);
-                for i:=1 to parcelas do
-                    begin
-                         n:=n+1;
-                         writeln('Ingrese total de Has sembradas');
-                         readln(has);
-                         if has <> 0 then
-                            begin
-                                 writeln('Ingrese Tipo'); readln(tipo);
-                                 tipo:=upcase(tipo);
-                                 writeln('Ingrese cant. de ton.');readln(tons);
-                                 case tipo of
-                                 'T': Vt[n]:=Vt[n] + tons;
-                                 'A': Va[n]:=Va[n] + tons;
-                                 'C': Vc[n]:=Vc[n] + tons;
-                                 end;
+     i:=1;
+     while (i < n) and (licen <> Vli[i]) do
+           i:= i+1;
 
-                                 Vhas[n]:=Vhas[n] + has;
-                            end
-                         else n:= n-1;
-                    end;
-                writeln('Ingrese DNI');readln(DNI);
-           end;
-     until DNI = '999';
+     if licen = Vli[i] then
+        Buscar:=i
+     else
+        Buscar:=0;
 end;
 
-function cant(Vt,Va,Vc:TV; n:byte):byte;
+procedure InsertaOrd(Var Vli:TV1; var Vcant:TVw; var Vtot,Vdem:TVdem; var n:byte; licen:byte; dem:shortint; costo:real);
 var
-   i,cont:byte;
+   i:byte;
 begin
-     cont:=0;
+     i:=n;
+     while (i > 0) and (licen < Vli[i]) do
+           begin
+                Vli[i+1]:=Vli[i]; Vcant[i+1]:=Vcant[i];
+                Vtot[i+1]:=Vtot[i]; Vdem[i+1]:= Vdem[i];
+                i:= i-1;
+           end;
+     Vli[i+1]:=licen; Vtot[i+1]:=costo;
+     Vcant[i+1]:=1; Vdem[i+1]:=dem;
+     n:=n+1;
+end;
+
+Procedure CalcularPromedio(var Vdem:TVdem; Vcant:TVw; n:byte);
+var
+   i:byte;
+begin
+     for i:=1 to n do
+         Vdem[i]:= Vdem[i]/Vcant[i];
+end;
+
+procedure Leer(Var Vli:TV1 ; var Vcant:TVw; var Vtot,Vdem:Tvdem; var n,cantCancel:Byte);
+var
+   arch:text; dem:shortint; car:char;
+   fecha:st16; licen,pos:byte; costo:real;
+begin
+     Assign(arch,'viajes.txt'); reset(arch);
+     cantCancel:=0; n:=0;
+
+     while not eof(arch) do
+           begin
+                read(Arch,licen,car,fecha,dem);
+                if dem = -1 then                        //La mejor forma de hacer esta parte es asi, ya que sino pregunto dos veces por dem = -1
+                   begin
+                        readln(arch);
+                        if copy(Fecha,1,4) = '2024' then
+                           cantCancel:= cantCancel+1;
+                   end
+                else
+                   begin
+                        readln(arch,costo);
+                        pos:= buscar(vli,n,licen);
+                        if pos = 0 then
+                           InsertaOrd(vli,vcant,vtot,vdem,n,licen,dem,costo)
+                        else
+                            begin
+                                 Vcant[pos]:= Vcant[pos]+1;
+                                 Vtot[pos]:= Vtot[pos]+costo;
+                                 Vdem[pos]:=Vdem[pos]+dem;
+                            end;
+                   end;
+           end;
+     CalcularPromedio(Vdem,Vcant,n); close(arch);
+     writeln(' La cantidad de viajes cancelados en el 2024 fue de: ',cantCancel);
+end;
+
+procedure InciA(Vli:TV1; Vdem:TVdem; n:byte);
+var
+   Vaux:TV1; Maxdem:real;
+   i,Naux:byte;
+begin
+     Naux:=0; Maxdem:=0;
      for i:=1 to n do
          begin
-              if ((vt[i]<>0) and (Va[i] = 0) and (Vc[i] = 0) OR
-                 (Vt[i] = 0) and (Va[i] = 0) and (Vc[i] <> 0) OR
-                 (Vt[i] = 0) and (Va[i] = 0) and (Vc[i] <> 0)) then
-                    cont:=cont+1;
+              if Vdem[i] > Maxdem then
+                 begin
+                      Maxdem:=Vdem[i];
+                      Naux:=1;
+                      Vaux[Naux]:=Vli[i];
+                 end
+              else if Vdem[i] = Maxdem then
+                   begin
+                        Naux:=Naux+1;
+                        Vaux[Naux]:= Vli[i];
+                   end;
          end;
-     cant:= cont;
+
+     for i:=1 to Naux do
+         write(Vaux[i],' ');
 end;
 
-
-Function Rinde(Vt,Va,Vc,Vhas:TV; n,x:byte):boolean;
+Procedure InciB(Vli:TV1; Vcant: TVw; Vtot:Tvdem; n:byte);
 var
-   i:byte; cond:boolean;
+   L,pos:byte;
 begin
-     cond:=true; i:=1;
-     while (i <= n) and cond do //Solo en la busquedas pasa que se usa (i < n), porque se evalua por separado la ultima iteracion
-           begin                //Si no se evalua por separado la ultima iteracion hay que hacer (i <= n)
-                i:= i+1;
-                if NOT ((Vt[i] > 0 ) and (Va[i] > 0) and (Vc[i] > 0)
-                   and ((Vhas[i]/(Vt[i] + Va[i] + Vc[i])) > X )) then
-                                        cond:=false;
-           end;
-               Rinde:=cond;
-end;
-
-var
-   Vhas,Vt,Va,Vc:TV;
-   n,x:byte;
-
-begin
-     //Almacenar
-     Leer(Vhas,Vt,Va,Vc,n);
-     //Inciso A
-     writeln('La cantidad de productores que han cosechado un unico cereal es: ',cant(Vt,Va,Vc,n));
-
-     //Inciso B
-     writeln('Ingrese X'); readln(x);
-     if Rinde(Vt,Va,Vc,Vhas,n,x) then
-        writeln('Todos los productores superaron el rinde ingresado por teclado')
+     writeln('Ingrese la unidad de licencia');readln(L);
+     pos:= Buscar(Vli,n,L);
+     if pos = 0 then
+        writeln('La unidad ingresada no existe')
      else
-         writeln('No todos superaron el rinde');
+         writeln('La recaudacion promedio es: ',(Vtot[pos]/Vcant[pos]):8:2);
+end;
+
+
+var
+   Vli:Tv1; Vcant:TVw; Vdem,Vtot:TVdem;
+   n,cantCancel:Byte;                          i:byte;
+begin
+     writeln('Lectura:');
+     Leer(Vli,Vcant,Vtot,Vdem,n,cantCancel);
+     writeln('Inciso A:');
+     InciA(Vli,Vdem,n);
+     writeln();
+     for i:=1 to n do
+         write(Vli[i],' ');
+     writeln('Inciso B:');
+     InciB(Vli,Vcant,Vtot,n);
      readln;
-end.   //56,09 min
+end.                            // 1:12 min - 1.16 min
