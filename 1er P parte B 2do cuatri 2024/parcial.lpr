@@ -13,7 +13,7 @@ var
    i:byte;
 begin
      i:=1;
-     while (i < n) and (licen <> Vli[i]) do
+     while (i < n) and (licen > Vli[i]) do
            i:= i+1;
 
      if licen = Vli[i] then
@@ -38,7 +38,7 @@ begin
      n:=n+1;
 end;
 
-Procedure CalcularPromedio(var Vdem:TVdem; Vcant:TVw; n:byte);
+Procedure CalcularPromedio(var Vdem:TVdem; Vcant:TVw; n:byte);  //Convenia mas hacer esto en procedimiento leer
 var
    i:byte;
 begin

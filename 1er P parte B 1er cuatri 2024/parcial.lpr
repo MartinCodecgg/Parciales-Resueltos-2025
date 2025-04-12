@@ -67,8 +67,8 @@ begin
      while (i <= n) and cond do //Solo en la busquedas pasa que se usa (i < n), porque se evalua por separado la ultima iteracion
            begin                //Si no se evalua por separado la ultima iteracion hay que hacer (i <= n)
                 i:= i+1;
-                if NOT ((Vt[i] > 0 ) and (Va[i] > 0) and (Vc[i] > 0)
-                   and ((Vhas[i]/(Vt[i] + Va[i] + Vc[i])) > X )) then
+                if ((Vt[i] > 0 ) and (Va[i] > 0) and (Vc[i] > 0)
+                   and ((Vhas[i]/(Vt[i] + Va[i] + Vc[i])) < X )) then
                                         cond:=false;
            end;
                Rinde:=cond;

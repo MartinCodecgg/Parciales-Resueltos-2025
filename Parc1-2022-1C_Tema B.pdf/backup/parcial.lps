@@ -9,21 +9,28 @@
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="8"/>
-        <CursorPos X="32" Y="16"/>
-        <FoldState Value=" T3O0E4 PiTif0T"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="74"/>
+        <CursorPos X="58" Y="88"/>
+        <FoldState Value=" T3D06413 PjWl30h"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\AppData\Local\Temp\Rar$DRa7712.3315\recuperatorio 2024\1 cuatrimestre\ejrec.lpr"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="40"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="1">
       <Position>
         <Filename Value="parcial.lpr"/>
-        <Caret Line="65" Column="34" TopLine="57"/>
+        <Caret Line="154" Column="73" TopLine="110"/>
       </Position>
       <Position>
         <Filename Value="parcial.lpr"/>
-        <Caret Line="63" Column="54" TopLine="54"/>
+        <Caret Line="70" Column="46" TopLine="22"/>
       </Position>
     </JumpHistory>
     <RunParams>
