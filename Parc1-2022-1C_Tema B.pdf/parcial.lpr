@@ -1,6 +1,10 @@
 program parcial;
 
-const TOP = 100;
+const
+     TOP = 100;
+     MOTO = 1000;
+     AUTO = 2000;
+     CAMION = 5000;
 
 Type
     ST3 = string[3];ST8 = string[7];
@@ -64,9 +68,9 @@ var
    aux:word;
 begin
      case tipo of        //Sintaxis correcta
-     1:aux := 1000;
-     2:aux := 2000;
-     3:aux := 5000;
+     1:aux := MOTO;
+     2:aux := AUTO;
+     3:aux := CAMION;
      end;
      Multa:= aux * BuscarFactor(Zona,Vz2,Vf,nz);
 end;

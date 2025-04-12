@@ -80,6 +80,19 @@ begin
      while not eof(arch) do
            begin
                 read(arch,tipo,vel,car,zona,car,pat); condM:=false;
+
+                if ((tipo=1) and (vel > 100)) OR     //Sintaxis correcta
+                   ((tipo=2) and (vel > 110)) OR
+                   ((tipo=3) and (vel > 90)) then
+                   begin
+                        n:= n+1;
+                        Vt[n]:=tipo; Vv[n]:=vel; Vz[n]:=zona;
+                        Vp[n]:=pat;
+                        Vm[n]:= Multa(Tipo,Zona,Vz2,Vf,nz);
+                   end;
+
+
+                {
                 case tipo of
                 1: if(vel > 100) then condM:=true;
                 2: if(vel > 110) then condM:=true;
@@ -93,10 +106,12 @@ begin
                         Vp[n]:=pat;
                         Vm[n]:= Multa(Tipo,Zona,Vz2,Vf,nz);
                    end;
+           end;}
+
            end;
      close(arch);
 
-     {
+     { Analisis de los datos almacenados (ignorar)
      acum:=0;
      for i:=1 to n do
          begin
