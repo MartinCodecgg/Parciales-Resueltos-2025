@@ -12,7 +12,7 @@ var
    i:byte;
 begin
      i:=1;
-     while (i < n) and (pas <> Vpas[i]) do
+     while (i < n) and (pas > Vpas[i]) do   //Ya que queda ordenado por pasillo
            i:=i+1;
      if pas = Vpas[i] then
         Buscar:=i
@@ -29,7 +29,7 @@ begin
      aux:=0;
      case dia of
      32..64:aux:=10;
-     65..120:aux:=15;
+     65..119:aux:=15;
      else
          if dia >= 120 then aux:=30;
      end;

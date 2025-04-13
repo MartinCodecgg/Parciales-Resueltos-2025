@@ -12,7 +12,7 @@ var
    i:byte;
 begin
      i:=1;
-     while (i < n) and (pas <> Vpas[i]) do
+     while (i < n) and (pas > Vpas[i]) do   //Ya que queda ordenado por pasillo
            i:=i+1;
      if pas = Vpas[i] then
         Buscar:=i
@@ -123,7 +123,6 @@ begin
          begin
               if Vvip[i] > x then
               begin
-                   writeln('entro if');
                    acum:=acum + Vimp[i];
                    cont:=cont+1;
               end;
