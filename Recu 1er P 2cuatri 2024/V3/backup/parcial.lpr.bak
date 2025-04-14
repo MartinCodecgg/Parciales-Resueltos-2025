@@ -57,7 +57,7 @@ begin
          Vpas[i]:=0;
 end;
 
-Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte);
+Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte; Vpas:TV);
 var
    arch:text; precio:real; tipo:char; Vcli:TV;
    dia,i:byte; carpa:word;
@@ -121,7 +121,7 @@ begin
 
 end;
 
-Function InciA(Vacum:Tvw; Vimp:TVr; n:byte):Byte;
+Function InciA(Vacum:Tvw; Vimp:TVr; Vpas:TV; n:byte):Byte;
 var
    i,aux1:byte; min:word; min2:real;
 begin
@@ -148,7 +148,7 @@ begin
      inciA:=aux1;
 end;
 
-Procedure InciB(Vvip:TVr; Vimp:TVr; n:byte);
+Procedure InciB(Vvip:TVr; Vimp:TVr; Vpas:TV; n:byte);
 var
    i,cont:byte; x:real;  acum:real;
 begin
@@ -167,7 +167,7 @@ begin
          writeln('La recaudacion promedio por pasillo para clientes Vip fue 0')
 end;
 
-Function InciC(Vvip:TVr; n:byte):byte;
+Function InciC(Vvip:TVr; Vpas:TV; n:byte):byte;
 var
    i,aux:byte;
 begin
@@ -187,10 +187,10 @@ var
    aux,n:byte;
 
 begin
-     Leer(Vvip,Vacum,Vimp,n);
+     Leer(Vvip,Vacum,Vimp,n,Vpas);
      writeln('El pasillo con menor acumulado de dias es: ',InciA(Vacum,Vimp,Vpas,n));
-     InciB(Vvip,Vimp,n);
-     aux:=InciC(Vvip,n);
+     InciB(Vvip,Vimp,Vpas,n);
+     aux:=InciC(Vvip,Vpas,n);
      if aux <> 0 then
         writeln('El primer pasillo que tiene mas de 30% de clientes VIP es: ',aux)
      else

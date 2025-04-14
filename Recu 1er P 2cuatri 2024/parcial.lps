@@ -9,47 +9,27 @@
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="112"/>
-        <CursorPos X="33" Y="179"/>
-        <FoldState Value=" TL90B T3M0R013 Pi8k30b"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="56"/>
+        <CursorPos X="20" Y="66"/>
+        <FoldState Value=" TL90B!"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Guia Progra-A 2025\Resumenes\repaso.lpr"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="61" Y="13"/>
-        <FoldState Value=" T3E0C7 PiYkV03"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="V3\parcial.lpr"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="52"/>
+        <CursorPos X="49" Y="10"/>
+        <UsageCount Value="12"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="5">
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="97" Column="56" TopLine="81"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="85" Column="25" TopLine="77"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="55" Column="9" TopLine="23"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="57" Column="52" TopLine="23"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="62" Column="72" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="55" Column="9" TopLine="22"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

@@ -31,7 +31,7 @@ begin
      32..64:aux:=10;
      65..119:aux:=15;
      else
-         if dia >= 120 then aux:=30;
+         if dia = 120 then aux:=30;
      end;
 
      case tipo of
@@ -49,13 +49,22 @@ begin
      //writeln('Calcular es: ',calcular:8:2);
 end;
 
-Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte; Vpas:TV);
+procedure Inicializar(Vpas:TV);
+var
+   i:byte;
+begin
+     for i:=1 to TOP do
+         Vpas[i]:=0;
+end;
+
+Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte);
 var
    arch:text; precio:real; tipo:char; Vcli:TV;
    dia,i:byte; carpa:word;
 begin
      assign(arch,'Alquileres.txt');reset(arch); aux:=0;
      readln(arch,precio);
+     Inicializar(Vpas);
      while not eof(arch) do
            begin
                 readln(arch,carpa,dia,tipo,tipo);
@@ -80,8 +89,10 @@ begin
                             Vcli[pos]:=Vcli[pos]+1;
                     end;
                 }
+
+
                 aux:=carpa div 100;
-                if Vpas[aux] = 0 then
+                if Vpas[aux] = 0 then   //Si lo hago de esta forma puede que almacene pasillos vacios, nose si esta bien o mal
                    begin
                         Vpas[aux]:=aux;
                         Vacum[aux]:=dia; Vimp[aux]:=calcular(dia,tipo,precio);
@@ -99,17 +110,18 @@ begin
                     end;
            end;
      for i:=1 to aux do
+         if Vcli[i] <> 0 then //Ya que quizas de un pasillo no hubo clientes
          Vvip[i]:=(Vvip[i]/Vcli[i])*100;
 
      for i:=1 to aux do
          begin
-              write(Vpas[i],' ',Vacum[i],' ',Vimp[i]:8:2,' ',Vvip[i]:8:2);
+              write(Vpas[i],' ',Vacum[i],' ',Vimp[i]:8:2,' ',Vvip [i]:8:2);
               writeln();
          end;
 
 end;
 
-Function InciA(Vacum:Tvw; Vimp:TVr; Vpas:TV; n:byte):Byte;
+Function InciA(Vacum:Tvw; Vimp:TVr; n:byte):Byte;
 var
    i,aux1:byte; min:word; min2:real;
 begin
@@ -127,13 +139,16 @@ begin
                               begin
                                    min2:=Vimp[i];
                                    aux1:=i;
-                              end;
-                      end;
+                              end
+                           else if Vimp[i] = min2 then
+                                   aux1:=i;
+                      end
+
          end;
      inciA:=aux1;
 end;
 
-Procedure InciB(Vvip:TVr; Vimp:TVr; Vpas:TV; n:byte);
+Procedure InciB(Vvip:TVr; Vimp:TVr; n:byte);
 var
    i,cont:byte; x:real;  acum:real;
 begin
@@ -152,7 +167,7 @@ begin
          writeln('La recaudacion promedio por pasillo para clientes Vip fue 0')
 end;
 
-Function InciC(Vvip:TVr; Vpos:TV; n:byte):byte;
+Function InciC(Vvip:TVr; n:byte):byte;
 var
    i,aux:byte;
 begin
@@ -172,10 +187,10 @@ var
    aux,n:byte;
 
 begin
-     Leer(Vvip,Vacum,Vimp,n,Vpas);
+     Leer(Vvip,Vacum,Vimp,n);
      writeln('El pasillo con menor acumulado de dias es: ',InciA(Vacum,Vimp,Vpas,n));
-     InciB(Vvip,Vimp,Vpas,n);
-     aux:=InciC(Vvip,Vpas,n);
+     InciB(Vvip,Vimp,n);
+     aux:=InciC(Vvip,n);
      if aux <> 0 then
         writeln('El primer pasillo que tiene mas de 30% de clientes VIP es: ',aux)
      else

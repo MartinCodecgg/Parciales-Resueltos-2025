@@ -28,10 +28,9 @@ begin
      //writeln('tipo es: ',tipo);
      aux:=0;
      case dia of
-     32..64:aux:=10;
-     65..119:aux:=15;
-     else
-         if dia = 120 then aux:=30;
+     30..59:aux:=10;
+     60..119:aux:=15;
+     120: aux:=30;
      end;
 
      case tipo of
@@ -57,38 +56,17 @@ begin
          Vpas[i]:=0;
 end;
 
-Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte);
+Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte; Vpas:TV);
 var
    arch:text; precio:real; tipo:char; Vcli:TV;
    dia,i:byte; carpa:word;
 begin
      assign(arch,'Alquileres.txt');reset(arch); aux:=0;
      readln(arch,precio);
-       Inicializar(Vpas);
+     Inicializar(Vpas);
      while not eof(arch) do
            begin
                 readln(arch,carpa,dia,tipo,tipo);
-                //aux:=carpa div 100;
-                {        //La busqueda es innesaria si el archivo viene ordenado
-                pos:= Buscar(Vpas,n,aux);
-                if pos = 0 then
-                   begin
-                        n:=n+1;
-                        Vpas[n]:=aux;
-                        Vacum[n]:=dia; Vimp[n]:=calcular(dia,tipo,precio);
-                        if tipo ='V' then
-                           Vvip[n]:=1; Vcli[n]:=1;
-                   end
-                else
-                    begin
-                         Vacum[pos]:=Vacum[pos] + dia;
-                         Vimp[pos]:=Vimp[pos] + calcular(dia,tipo,precio);
-                         if tipo = 'V' then
-                            Vvip[pos]:= Vvip[pos] +1;
-
-                            Vcli[pos]:=Vcli[pos]+1;
-                    end;
-                }
 
 
                 aux:=carpa div 100;
@@ -115,13 +93,13 @@ begin
 
      for i:=1 to aux do
          begin
-              write(Vpas[i],' ',Vacum[i],' ',Vimp[i]:8:2,' ',Vvip [i]:8:2);
+              write(Vpas[i],' ',Vacum[i],' ',Vimp[i]:8:2,' ',Vvip[i]:8:2);
               writeln();
          end;
 
 end;
 
-Function InciA(Vacum:Tvw; Vimp:TVr; n:byte):Byte;
+Function InciA(Vacum:Tvw; Vimp:TVr; Vpas:TV; n:byte):Byte;
 var
    i,aux1:byte; min:word; min2:real;
 begin
@@ -139,16 +117,13 @@ begin
                               begin
                                    min2:=Vimp[i];
                                    aux1:=i;
-                              end
-                           else if Vimp[i] = min2 then
-                                   aux1:=i;
-                      end
-
+                              end;
+                      end;
          end;
      inciA:=aux1;
 end;
 
-Procedure InciB(Vvip:TVr; Vimp:TVr; n:byte);
+Procedure InciB(Vvip:TVr; Vimp:TVr; Vpas:TV; n:byte);
 var
    i,cont:byte; x:real;  acum:real;
 begin
@@ -167,7 +142,7 @@ begin
          writeln('La recaudacion promedio por pasillo para clientes Vip fue 0')
 end;
 
-Function InciC(Vvip:TVr; n:byte):byte;
+Function InciC(Vvip:TVr; Vpas:TV; n:byte):byte;
 var
    i,aux:byte;
 begin
@@ -187,10 +162,10 @@ var
    aux,n:byte;
 
 begin
-     Leer(Vvip,Vacum,Vimp,n);
+     Leer(Vvip,Vacum,Vimp,n,Vpas);
      writeln('El pasillo con menor acumulado de dias es: ',InciA(Vacum,Vimp,Vpas,n));
-     InciB(Vvip,Vimp,n);
-     aux:=InciC(Vvip,n);
+     InciB(Vvip,Vimp,Vpas,n);
+     aux:=InciC(Vvip,Vpas,n);
      if aux <> 0 then
         writeln('El primer pasillo que tiene mas de 30% de clientes VIP es: ',aux)
      else
