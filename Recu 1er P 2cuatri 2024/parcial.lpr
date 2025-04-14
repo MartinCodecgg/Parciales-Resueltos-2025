@@ -7,7 +7,7 @@ Type
     TVr = array[1..TOP] of real;
     TVw = array[1..TOP] of word;
 
-Function Buscar(Vpas:TV; n,pas:byte):byte;
+{Function Buscar(Vpas:TV; n,pas:byte):byte; //TOTALMENTE Inncesaria la busqueda si viene ordenado
 var
    i:byte;
 begin
@@ -18,7 +18,7 @@ begin
         Buscar:=i
      Else
          buscar:=0;
-end;
+end;   }
 
 Function Calcular(dia:word; tipo:char; precio:real):real;
 var
@@ -49,17 +49,18 @@ begin
      //writeln('Calcular es: ',calcular:8:2);
 end;
 
-Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var n:byte; Vpas:TV);
+Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var aux:byte; Vpas:TV);
 var
    arch:text; precio:real; tipo:char; Vcli:TV;
-   dia,i,aux,pos:byte; carpa:word;
+   dia,i:byte; carpa:word;
 begin
-     assign(arch,'Alquileres.txt');reset(arch); n:=0;
+     assign(arch,'Alquileres.txt');reset(arch); aux:=0;
      readln(arch,precio);
      while not eof(arch) do
            begin
                 readln(arch,carpa,dia,tipo,tipo);
-                aux:=carpa div 100;
+                //aux:=carpa div 100;
+                {        //La busqueda es innesaria si el archivo viene ordenado
                 pos:= Buscar(Vpas,n,aux);
                 if pos = 0 then
                    begin
@@ -78,11 +79,29 @@ begin
 
                             Vcli[pos]:=Vcli[pos]+1;
                     end;
+                }
+                aux:=carpa div 100;
+                if Vpas[aux] = 0 then
+                   begin
+                        Vpas[aux]:=aux;
+                        Vacum[aux]:=dia; Vimp[aux]:=calcular(dia,tipo,precio);
+                        if tipo ='V' then
+                           Vvip[aux]:=1; Vcli[aux]:=1;
+                   end
+                else
+                    begin
+                         Vacum[aux]:=Vacum[aux] + dia;
+                         Vimp[aux]:=Vimp[aux] + calcular(dia,tipo,precio);
+                         if tipo = 'V' then
+                            Vvip[aux]:= Vvip[aux] +1;
+
+                            Vcli[aux]:=Vcli[aux]+1;
+                    end;
            end;
-     for i:=1 to n do
+     for i:=1 to aux do
          Vvip[i]:=(Vvip[i]/Vcli[i])*100;
 
-     for i:=1 to n do
+     for i:=1 to aux do
          begin
               write(Vpas[i],' ',Vacum[i],' ',Vimp[i]:8:2,' ',Vvip[i]:8:2);
               writeln();
