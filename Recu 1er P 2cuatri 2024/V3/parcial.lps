@@ -9,18 +9,13 @@
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="34"/>
-        <CursorPos X="33" Y="54"/>
-        <FoldState Value=" T3iY0Q1 PHS0P"/>
-        <UsageCount Value="22"/>
+        <TopLine Value="134"/>
+        <CursorPos X="93" Y="142"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="22" TopLine="4"/>
-      </Position>
       <Position>
         <Filename Value="parcial.lpr"/>
         <Caret Line="25" TopLine="7"/>
@@ -136,6 +131,10 @@
       <Position>
         <Filename Value="parcial.lpr"/>
         <Caret Line="135" Column="18" TopLine="78"/>
+      </Position>
+      <Position>
+        <Filename Value="parcial.lpr"/>
+        <Caret Line="150" Column="18" TopLine="134"/>
       </Position>
     </JumpHistory>
     <RunParams>

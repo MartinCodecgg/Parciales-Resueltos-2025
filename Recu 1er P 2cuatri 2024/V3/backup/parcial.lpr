@@ -122,11 +122,10 @@ begin
          writeln('La recaudacion promedio por pasillo para clientes Vip fue 0')
 end;
 
-Function InciC(Vvip:TVr; n:byte):byte;
+Function InciC(Vvip:TVr; n:byte):shortint;
 var
-   i,aux:byte;
+   i:byte;
 begin
-     aux:=0;
      i:=1;
      while (i<n) and (Vvip[i]< 30) do
            i:=i+1;
@@ -134,13 +133,13 @@ begin
      if Vvip[i] > 30 then
         InciC:=i
      else
-         InciC:=0;
+         InciC:=-1;
 end;
 
 
 var
    Vacum:TVw; Vimp,Vvip:TVr;
-   aux,n:byte;
+   n:byte;  aux:shortint;    //Tener en cuenta si 0 seria un posible valor, en este si lo es
 
 begin
      Leer(Vvip,Vacum,Vimp,n);
@@ -148,7 +147,7 @@ begin
      InciB(Vvip,Vimp,n);
      writeln('n es',n);
      aux:=InciC(Vvip,n);
-     if aux <> 0 then
+     if aux <> -1 then
         writeln('El primer pasillo que tiene mas de 30% de clientes VIP es: ',aux)
      else
          writeln('Ningun pasillo cumple la condicion');
