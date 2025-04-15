@@ -8,12 +8,19 @@
       <Unit>
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="6"/>
-        <CursorPos X="32" Y="20"/>
-        <FoldState Value=" T6D01 T3jQ06M"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="40"/>
+        <CursorPos X="45" Y="50"/>
+        <FoldState Value=" T380L113 PiGjX0Y"/>
+        <UsageCount Value="21"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\V1.lpr"/>
+        <UnitName Value="parcial"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="85"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
@@ -22,15 +29,4 @@
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="parcial.lpr"/>
-        <Line Value="15"/>
-      </Item>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>
