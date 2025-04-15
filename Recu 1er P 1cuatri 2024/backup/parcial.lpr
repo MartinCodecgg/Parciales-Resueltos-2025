@@ -9,7 +9,8 @@ Type
     TVgen = array[1..TOP] of byte;
     TVs = array[1..TOP] of word;
 
-Function BuscarInter(inter:st10; Vidi:TVst10; n:byte):byte;
+    {
+Function BuscarInter(inter:st10; Vidi:TVst10; n:byte):byte; //b
 var
    i:byte;
 begin
@@ -21,6 +22,7 @@ begin
      Else
          BuscarInter:=0;
 end;
+}
 
 Function contar(inter:st10; Vidi2:TVst10; n2:byte):byte;
 var
@@ -28,7 +30,7 @@ var
 begin
      cont:=0;
      for i:=1 to n2 do
-         if inter = Vidi2[2] then
+         if inter = Vidi2[i] then    //b
             cont:= cont+1;
      contar:=cont;
 end;
@@ -41,7 +43,7 @@ begin
      n:=0;
      while not eof(arch) do
            begin
-                readln(arch,inter,gen,firmo); firmo:=upcase(firmo);
+                readln(arch,inter,gen,firmo,firmo); firmo:=upcase(firmo);
                 if firmo = 'S' then
                    begin
                         n:= n+1;
@@ -51,32 +53,36 @@ begin
      close(arch);
 end;
 
-Procedure LeerTema(Var Vt:TVst6; Var Vs:TVs; Var n2:byte; Vidi:Tvst10; Var Vidi2:TVst10; n:byte; var Nodis:byte);
+Procedure LeerTema(Var Vt:TVst6; Var Vs:TVs; Var n2:byte; Var Vidi2:TVst10; var Nodis:byte);      //b
 var
    dur:word; dis:char; inter:st10; id:st6;
-   k,i,pos:byte;
+   k,i:byte;                            //No es necesaria la busqueda ya que los interpretes no se pueden repetir
+   arch:text;
 begin
-     Writeln('Ingrese k'); readln(k); n2:=0; Nodis:=0;
+     assign(arch,'temas.txt');reset(arch); //Adapto la resolucion para leer desde archivo porque alta paja el teclado
+     readln(arch,k); n2:=0; Nodis:=0;
 
      for i:=1 to K do
          begin
-              writeln('Ingrese interprete'); readln(inter);
-              pos:=BuscarInter(inter,Vidi,n);
-              if pos <> 0 then
-                 begin
-                      writeln('Ingrese id del tema, duracion y disponibilidad');
-                      readln(Id,dur,dis); dis:=upcase(dis);
-                      while Id <> 'zzz' do
+              readln(arch,inter);
+              readln(arch,Id,dur,dis,dis); dis:=upcase(dis);
+              while Id <> 'zzz' do
+                    begin
+                         if dis <> 'N' then
                             begin
-                                 if dis <> 'N' then
-                                    begin
-                                         Vt[n2]:=Id; vs[n2]:=dur;
-                                         Vidi2[n2]:=inter;
-                                    end
-                                 else
-                                     Nodis:=Nodis + 1;
-                            end;
-                 end;
+                                 n2:= n2+1;
+                                 Vt[n2]:=Id; vs[n2]:=dur;
+                                 Vidi2[n2]:=inter;
+                            end
+                         else
+                             Nodis:=Nodis + 1;
+
+                             read(arch,Id);
+                             if id <> 'zzz' then
+                             readln(arch,dur,dis,dis) //dis:=upcase(dis);
+                             else
+                                 readln(arch);
+                    end;
           end;
 end;
 
@@ -113,7 +119,7 @@ begin
          writeln(Vb[i],' ');
 end;
 
-Procedure generar(VIdi2:Tvst10; var Vb:TVst10; n2:byte; Vidi:TVst10; nb,n:byte; Vs:TVs);
+Procedure InciB(VIdi2:Tvst10; var Vb:TVst10; n2:byte; Vidi:TVst10; nb,n:byte; Vs:TVs);
 var
    i,j:byte;      total:word;
    media:real;
@@ -140,7 +146,7 @@ begin
      Mostrar(Vb,nb);
 end;
 
-procedure InciC(Vidi,Vidi2:TVst10; Vt:TVst6; Vs:TVs; Var n,n2:byte);
+procedure InciC(var Vidi,Vidi2:TVst10; var Vt:TVst6; var Vs:TVs; Var n,n2:byte);  //Recordar, si modifico un vector debo volver a usar var
 var
     L:st10; T:st6; D:word;     pos:byte;
 begin
@@ -154,18 +160,21 @@ begin
         end;
 end;
 
-
-
 var
    Vidi,Vidi2,Vb:TVst10; Vt:TVst6; Vgen:TVgen; aux:st10; Vs:TVs; n,n2,nb,Nodis:byte;
 begin
      LeerInterprete(Vidi,Vgen,n);
-     LeerTema(Vt,Vs,n2,Vidi,Vidi2,n,Nodis);
+     LeerTema(Vt,Vs,n2,Vidi2,Nodis);
      aux:= InciA(Vidi,Vidi2,Vgen,n,n2);
+     writeln('Inciso A');
      if aux = '0' then
         writeln('Existe')
      else
-         Writeln('El que tiene mas condiciones es: ',aux);
-     generar(Vidi2,Vb,n2,Vidi,nb,n,vs);
+         Writeln('El artista que tiene mas canciones es: ',aux);
+     writeln();
+     writeln('Inciso B');
+     InciB(Vidi2,Vb,n2,Vidi,nb,n,vs);
+     writeln('Inciso C');
+     InciC(Vidi,Vidi2,Vt,Vs,n,n2);
      readln;
-end.
+end.             //1,38 hs, revisado luego 1,46 hs
