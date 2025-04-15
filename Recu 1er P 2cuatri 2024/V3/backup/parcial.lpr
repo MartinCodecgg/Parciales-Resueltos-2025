@@ -1,10 +1,10 @@
 program parcial;
 
-const TOP = 100;
+const TOP = 9;      //Lo mejor es hacer desde el 0 al 9 y en todos los for y while hacer de i:=0 a n
 
 Type
-    TVr = array[1..10] of real;
-    TVw = array[1..10] of word;
+    TVr = array[0..TOP] of real;
+    TVw = array[0..TOP] of word;
 
 Function Calcular(dia:word; tipo:char; precio:real):real;
 var
@@ -33,20 +33,20 @@ procedure Inicializar(var Vacum:TVw; var Vimp,Vvip:TVr);
 var
    i:byte;
 begin
-     for i:=1 to TOP do
+     for i:=0 to TOP do
          Vacum[i]:=0; Vimp[i]:=0; Vvip[i]:=0;
 end;
 
 Procedure Leer(Var Vvip:TVr; Var Vacum:TVw; Var Vimp:TVr; Var n:byte);
 var
    arch:text; precio:real; tipo:char;
-   dia,i,contCli,pas:byte; carpa:word;
+   dia,i,contCli:byte; pas:shortint; carpa:word;
 begin
      assign(arch,'Alquileres.txt');reset(arch);
      readln(arch,precio);
      Inicializar(Vacum,Vimp,Vvip);
      contCli:=0;
-     pas:=0;
+     pas:=-1;   //Pas debe ser negativo para diferenciar bien ya que se le asigna n al final, y n puede ser 0
      while not eof(arch) do
            begin
                 readln(arch,carpa,dia,tipo,tipo);
@@ -57,7 +57,7 @@ begin
                 if tipo = 'V' then
                    Vvip[n]:= Vvip[n] +1;
 
-                if (n<>pas) and (pas<>0) then
+                if (n<>pas) and (pas<>-1) then
                 begin
                      Vvip[pas]:=Vvip[pas]/(contCli -1)*100;
                      contCli:=1;
@@ -66,13 +66,13 @@ begin
            end;
            Vvip[pas]:=Vvip[pas]/(contCli)*100;
 
-
-     for i:=1 to n do
+        {
+     for i:=0 to n do
          begin
               write(i,' ',Vacum[i],' ',Vimp[i]:8:2,' ',Vvip [i]:8:2);
               writeln();
          end;
-
+             }
 end;
 
 Function InciA(Vacum:Tvw; Vimp:TVr; n:byte):Byte;
@@ -80,7 +80,7 @@ var
    i,aux1:byte; min:word; min2:real;
 begin
      min:=65000; min2:=1000000;
-     for i:=1 to n do
+     for i:=0 to n do
          begin
          if Vacum[i] <> 0 then
               if (Vacum[i] < min) then
@@ -98,7 +98,6 @@ begin
                            else if Vimp[i] = min2 then
                                    aux1:=i;
                       end
-
          end;
      inciA:=aux1;
 end;
@@ -108,7 +107,7 @@ var
    i,cont:byte; x:real;  acum:real;
 begin
      writeln('Ingrese x');readln(x); acum:=0;   cont:=0;
-     for i:=1 to n do
+     for i:=0 to n do
          begin
               if Vvip[i] > x then
               begin
@@ -126,7 +125,7 @@ Function InciC(Vvip:TVr; n:byte):shortint;
 var
    i:byte;
 begin
-     i:=1;
+     i:=0;
      while (i<n) and (Vvip[i]< 30) do
            i:=i+1;
 
@@ -139,7 +138,7 @@ end;
 
 var
    Vacum:TVw; Vimp,Vvip:TVr;
-   n:byte;  aux:shortint;    //Tener en cuenta si 0 seria un posible valor, en este si lo es
+   n:byte;  aux:shortint;    //Tener en cuenta si 0 seria un posible valor, en este si lo es, debo devolver -1 si no encontre nada
 
 begin
      Leer(Vvip,Vacum,Vimp,n);
