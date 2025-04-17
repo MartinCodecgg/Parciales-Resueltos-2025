@@ -9,17 +9,17 @@
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="15" Y="7"/>
         <FoldState Value=" T380L4 pj3jY0CV"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="72"/>
       </Unit>
       <Unit>
         <Filename Value="..\V1.lpr"/>
         <UnitName Value="parcial"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="84"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="5"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
