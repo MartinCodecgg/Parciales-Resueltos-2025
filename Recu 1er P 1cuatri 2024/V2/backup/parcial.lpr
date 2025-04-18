@@ -103,6 +103,8 @@ begin
                               max:=Vcant[i];
                               posMax:=i;
                          end;
+
+                 end;
          end;
 
      if cond and cond2 then
@@ -118,6 +120,7 @@ var
    i:byte; media:real;
 begin
      media:=0;
+     n2:=0;
      for i:=1 to n do
          media:=media + Vdur[i];
      media:=media/n;

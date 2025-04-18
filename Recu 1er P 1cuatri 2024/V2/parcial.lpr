@@ -31,6 +31,14 @@ begin
          end;
 end;
 
+Procedure Mostrar(Vb: TVst10; n2:byte);
+var
+   i:byte;
+begin
+     for i:=1 to n2 do
+         writeln(Vb[i]);
+end;
+
 Procedure LeerInter(Var Vint:TVst10; Var Vgen:TV; Var n:byte);
 var
    arch:text; Id:st10; gen:byte;
@@ -120,6 +128,7 @@ var
    i:byte; media:real;
 begin
      media:=0;
+     n2:=0;
      for i:=1 to n do
          media:=media + Vdur[i];
      media:=media/n;
@@ -131,9 +140,7 @@ begin
                       Vb[n2]:=Vint[i];
                  end;
          end;
-     for i:=1 to n2 do
-         writeln(Vb[i]);
-
+    Mostrar(Vb,n2);
 end;
 
 Procedure InciC(Vint:TVst10; Var Vdur:TVw; var Vcant:TV; n:byte);
