@@ -129,4 +129,4 @@ begin
    InciA(Vreg,Vhab,n);
    Writeln('La provincia con mayor ingreso promedio por vivienda es: ',InciB(Vnom,Ving,Vvib,n));
    InciC(Vcod,Ving,V2010,Vhab,n);
-end.
+end.                                //1.20 hs

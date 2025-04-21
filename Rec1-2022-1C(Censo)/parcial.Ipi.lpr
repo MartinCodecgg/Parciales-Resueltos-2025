@@ -1,4 +1,4 @@
-program parcial.Ipi;
+program parcial;
 
 Const
      TOP = 100;
