@@ -6,11 +6,11 @@
     <BuildModes Active="Default"/>
     <Units>
       <Unit>
-        <Filename Value="parcial.lpr"/>
+        <Filename Value="ej.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="4"/>
-        <CursorPos X="64" Y="44"/>
+        <TopLine Value="24"/>
+        <CursorPos X="33" Y="30"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
