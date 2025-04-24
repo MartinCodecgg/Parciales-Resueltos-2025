@@ -1,4 +1,4 @@
-program parcial.Ipi;
+program parcial;
 
 Const
      TOP = 100;
@@ -36,13 +36,17 @@ end;
 
 Procedure LeerProvincias(Var Vcod:TVst2; Var Vreg:TVc; Var V2010:TV; Var n:byte; var Vnom:TVst30);
 var
-   arch:text; cod:st2; reg:char; nom:st30; cant2010:byte;
+   arch:text; cod:st2; reg:char; nom:st30; cant2010:integer;
 begin
      assign(arch,'Provincias.txt');reset(arch);
      n:=0;
      while not eof(arch) do
            begin
-                readln(arch,cod,reg,nom,reg,reg,cant2010); n:=n+1;
+                writeln('hola');
+                readln;
+                readln(arch,cod,reg,nom,reg,cant2010);
+                writeln (cod, '  ', nom, '  ', reg,cant2010);readln;
+                n:=n+1;
                 Vcod[n]:=cod; Vreg[n]:=reg;
                 V2010[n]:=cant2010; Vnom[n]:=nom;
            end;

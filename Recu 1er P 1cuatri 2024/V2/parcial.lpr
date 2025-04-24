@@ -118,9 +118,9 @@ begin
      if cond and cond2 then
         InciA:=Vint[posMax]
      else if cond then
-          InciA:='1'
+          InciA:='Si existe'
      else
-       InciA:='0';
+       InciA:='No existe';
 end;
 
 Procedure InciB(Vint:TVst10; Vdur:TVw; n:byte; Var Vb:TVst10; var n2:byte);
@@ -164,18 +164,11 @@ end;
 var
    Vint,Vb:TVst10; Vgen,Vcant,Vnodis:TV;
    Vdur:TVw; n,n2:byte;
-   aux:st10;
 
 begin
      LeerInter(Vint,Vgen,n);
      LeerTema(Vint,n,Vcant,Vnodis,Vdur);
-     aux:=InciA(Vint,Vgen,Vcant,Vnodis,n);
-     if aux = '1' then
-        writeln('Si,existe')
-     else if aux = '0' then
-          writeln('Ningun interprete cumple la condicion')
-     else
-         Writeln('El que tiene mas tema grabados es:',aux);
+     writeln('Inciso A :',InciA(Vint,Vgen,Vcant,Vnodis,n));
      writeln('Inciso B');
      InciB(Vint,Vdur,n,Vb,n2);
      writeln('Inciso C');

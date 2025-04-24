@@ -9,11 +9,10 @@
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="6"/>
-        <CursorPos X="32" Y="20"/>
-        <FoldState Value=" T6D01 T3jQ06M"/>
+        <CursorPos X="36" Y="7"/>
+        <FoldState Value=" T6C01 T3jP06f"/>
         <UsageCount Value="23"/>
+        <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
@@ -29,7 +28,7 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="parcial.lpr"/>
-        <Line Value="15"/>
+        <Line Value="14"/>
       </Item>
     </BreakPoints>
   </Debugging>

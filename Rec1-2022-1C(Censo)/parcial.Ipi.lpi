@@ -28,6 +28,7 @@
       <Unit>
         <Filename Value="parcial.Ipi.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="parcial"/>
       </Unit>
     </Units>
   </ProjectOptions>

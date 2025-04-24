@@ -5,7 +5,6 @@ Const TOP = 100;
 Type
     st6 = string[6]; st10 = string[10];
     TVst10 = array[1..TOP] of st10;
-    TVst6 = array[1..TOP] of st6;
     TVgen = array[1..TOP] of byte;
     TVs = array[1..TOP] of word;
 

@@ -9,7 +9,7 @@ Type
     TVgen = array[1..TOP] of byte;
     TVs = array[1..TOP] of word;
 
-    {
+
 Function BuscarInter(inter:st10; Vidi:TVst10; n:byte):byte; //b
 var
    i:byte;
@@ -22,7 +22,6 @@ begin
      Else
          BuscarInter:=0;
 end;
-}
 
 Function contar(inter:st10; Vidi2:TVst10; n2:byte):byte;
 var

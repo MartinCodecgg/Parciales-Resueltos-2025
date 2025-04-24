@@ -67,12 +67,10 @@ begin
          end;
 
      for i:=1 to NESC do
-         begin
-              writeln('Escuderia ',Vesc2[i],', Tuvo un total de vueltas de: ',Vaux[i]);
-         end;
+         writeln('Escuderia ',Vesc2[i],', Tuvo un total de vueltas de: ',Vaux[i]);
 end;
 
-Procedure InciB(Vnom:TVst16; Vprom:TVr; Vcont:TV; N:byte);
+Function InciB(Vnom:TVst16; Vprom:TVr; Vcont:TV; N:byte):byte;
 var
    i,posMax:byte;
    max:real;
@@ -89,7 +87,7 @@ begin
                       if Vcont[i] > Vcont[posMax] then
                          posMax:=i;
          end;
-     writeln('El nombre que alcanzo el primer en la competencia es: ',Vnom[posMax]);
+     InciB:=posMax;
 end;
 
 Procedure InciC(Vesc:TV; Vprom:TVr; n:byte);
@@ -115,6 +113,6 @@ var
 begin
      Leer(Vnom,Vesc,Vcont,Vprom,n);
      InciA(Vcont,Vesc,n);
-     InciB(Vnom,Vprom,Vcont,n);
+     writeln('El nombre que alcanzo el primer en la competencia es: ',InciB(Vnom,Vprom,Vcont,n));
      InciC(Vesc,Vprom,n);         //53,33 min con un error grave
 end.
