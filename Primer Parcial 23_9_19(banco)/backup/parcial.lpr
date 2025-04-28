@@ -59,11 +59,10 @@ end;
 
 Procedure InciA(Vnom:TVst12; Vtime:TVw);
 var
-   usuario:st12; pos:byte;
+   usuario:st12;
 begin
      writeln('Ingrese Usuario');readln(usuario);
-     pos:=Buscar(Vnom,usuario);
-     writeln('El tiempo de acceso del usuario es: ',Vtime[pos]);
+     writeln('El tiempo de acceso del usuario es: ',Vtime[Buscar(Vnom,usuario);]);
 end;
 
 Function InciB(Vtime:TVw; Vip:TVst3; n:byte):real;
@@ -77,8 +76,10 @@ begin
                  cont:=cont+1;
                  acum:=acum + Vtime[i];
             end;
-
-     InciB:=acum/cont;
+     if cont<> 0 then
+        InciB:=acum/cont
+     else
+       InciB:=0;
 end;
 
 Function InciC(Vtime:TVw; Vip:TVst3; n:byte):byte;
