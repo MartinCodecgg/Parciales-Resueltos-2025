@@ -6,20 +6,19 @@
     <BuildModes Active="Default"/>
     <Units>
       <Unit>
-        <Filename Value="parcial.lpr"/>
+        <Filename Value="punto2.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Punto2"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="162"/>
-        <CursorPos X="28" Y="165"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="17"/>
+        <CursorPos X="54" Y="34"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory>
       <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="200" Column="15" TopLine="180"/>
+        <Filename Value="punto2.lpr"/>
+        <Caret Line="37" Column="13" TopLine="16"/>
       </Position>
     </JumpHistory>
     <RunParams>

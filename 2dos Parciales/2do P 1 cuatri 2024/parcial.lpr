@@ -162,7 +162,7 @@ begin
              if mt[i,j] < min then
                 begin
                      min:=mt[i,j];
-                     pos:=i;
+                     pos:=J;
                 end;
              minFila(mt,i,j-1,min,pos);
         end;
@@ -187,14 +187,19 @@ end;
 
 
 var
-   mt:TMT; V:TV; n,m,n2:byte;
+   mt:TMT; V:TV; n,m,n2,i:byte;
 
 Const
-     mat:TMT = ((1,2,3),(4,5,6),(7,8,9));
+     mat:TMT = ((1,2,3),
+               (4,5,6),
+               (7,8,9));
 begin
      //carga
      mt:=mat;
      n:=3; m:=3;
+     n2:=0;
      Generar(mt,V,n,m,n2);
+     for i:=3 downto 1 do
+         write(V[i]:4);
      readln;
 end.

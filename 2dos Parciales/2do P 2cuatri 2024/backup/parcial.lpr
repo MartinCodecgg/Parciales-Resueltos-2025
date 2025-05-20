@@ -1,4 +1,4 @@
-{
+
 program parcial;
 
 Const TOP = 100;
@@ -106,7 +106,7 @@ begin
               if mt[pos,hora] = 0 then
                  writeln('No se brinda servicio en esa hora')
               else
-                  writeln('El precio a abonar por el viaje es: ',(mt[pos,hora]*km*10):8:2);
+                  writeln('El precio a abonar por el viaje es: ',mt[pos,hora]*km*10:8:2);
          end;
 end;
 
@@ -158,18 +158,23 @@ begin
 end;
 
 var
-   mt:TMT; Vzona:TVST4; n,nc:byte;
-   Vc:TVregC;
+   mt:TMT; Vzona:TVST4; n,nc:byte;      z1,z2:st4;
+   Vc:TVregC;             car:char;
 begin
      Leer(mt,Vzona,n);
-     Writeln('El codigo de zona con menor precio por cuadra es: ',Vzona[InciA(mt,n)]);
-     InciB(mt,Vzona,n);
-     InciC(mt,Vzona,n,Vc,nc);
+     //Writeln('El codigo de zona con menor precio por cuadra es: ',Vzona[InciA(mt,n)]);
+     //InciB(mt,Vzona,n);
+     //InciC(mt,Vzona,n,Vc,nc);
+
+
+     writeln('ingrese datos');
+     readln(z1,car,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]);
+     writeln(z1,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]);
      readln;
 end.
-}
 
 
+{
 Program Punto2;
 
 Const TOP = 3;
@@ -208,5 +213,5 @@ begin
      n:=3;
      writeln('La suma es:' ,Suma(mt,n-1,n,n));
      readln;
-end.
+end.                                                   }
 // De 2,15 hs Parcial , 1.30 hs parcial, 1,50 con prueba

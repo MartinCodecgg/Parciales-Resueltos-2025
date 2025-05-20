@@ -28,6 +28,7 @@
       <Unit>
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="Punto2"/>
       </Unit>
     </Units>
   </ProjectOptions>

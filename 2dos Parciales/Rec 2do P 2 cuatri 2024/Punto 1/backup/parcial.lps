@@ -8,20 +8,14 @@
       <Unit>
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Punto2"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="162"/>
-        <CursorPos X="28" Y="165"/>
-        <UsageCount Value="21"/>
+        <CursorPos X="6" Y="131"/>
+        <FoldState Value=" T3C086 Pj2if0Q"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="200" Column="15" TopLine="180"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
