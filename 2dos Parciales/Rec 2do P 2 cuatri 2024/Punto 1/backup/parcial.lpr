@@ -30,7 +30,7 @@ end;
 
 Procedure LeerAero(Var Vaero:TVregA; var n:byte);
 var
-   arch:text;
+   arch:text;     i:byte;
 begin
      assign(arch,'aeropuertos.txt'); reset(arch); n:=0;
      while not eof(arch) do

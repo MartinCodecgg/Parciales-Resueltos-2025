@@ -9,10 +9,11 @@
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="6" Y="131"/>
-        <FoldState Value=" T3C086 Pj2if0Q"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="119"/>
+        <CursorPos Y="58"/>
+        <FoldState Value=" T3C085 PiSiE02"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
