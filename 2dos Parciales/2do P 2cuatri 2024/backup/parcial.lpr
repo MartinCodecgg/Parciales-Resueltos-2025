@@ -169,7 +169,7 @@ begin
 
      writeln('ingrese datos');
      readln(z1,car,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]);
-     writeln(z1,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]);
+     writeln(z1,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]:8:2);
      readln;
 end.
 

@@ -162,14 +162,9 @@ var
    Vc:TVregC;             car:char;
 begin
      Leer(mt,Vzona,n);
-     //Writeln('El codigo de zona con menor precio por cuadra es: ',Vzona[InciA(mt,n)]);
-     //InciB(mt,Vzona,n);
-     //InciC(mt,Vzona,n,Vc,nc);
-
-
-     writeln('ingrese datos');
-     readln(z1,car,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]);
-     writeln(z1,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]:8:2);
+     Writeln('El codigo de zona con menor precio por cuadra es: ',Vzona[InciA(mt,n)]);
+     InciB(mt,Vzona,n);
+     InciC(mt,Vzona,n,Vc,nc);
      readln;
 end.
 
