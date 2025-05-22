@@ -9,7 +9,7 @@ Procedure Indice(mt:TMT; i,j,n,elem:byte; var pos:byte);
 begin
      if j>0 then
         begin
-             if (mt[i,j] > elem ) and (mt[i,j] mod 2 <> 0) then
+             if (mt[i,j] > elem ) and (mt[i,j] mod 2 <> 0) then   //Volver a leer el enunciado luego de hacer el ejercicio
                 begin
                      elem:=mt[i,j];
                      pos:=i;
