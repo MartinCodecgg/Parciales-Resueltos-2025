@@ -1,4 +1,4 @@
-
+{
 program parcial;
 
 Const TOP = 100;
@@ -167,9 +167,9 @@ begin
      InciC(mt,Vzona,n,Vc,nc);
      readln;
 end.
+}
 
 
-{
 Program Punto2;
 
 Const TOP = 3;
@@ -185,8 +185,8 @@ begin
         Suma:=0
      else
          begin
-              if (j>i) and (mt[i,j] = mt[j,i]) and (mt[i,j] > 0) then
-                 aux:=mt[i,j]
+              if (mt[i,j] = mt[j,i]) and (mt[i,j] > 0) then    //No hace falta la condicion de j>i porque ya la valido en el else del if con j>i+1
+                 aux:=mt[i,j]                                     //Es decir en ningun momento voy a estar en la diagonal
               else
                   aux:=0;
 
@@ -208,5 +208,5 @@ begin
      n:=3;
      writeln('La suma es:' ,Suma(mt,n-1,n,n));
      readln;
-end.                                                   }
+end.
 // De 2,15 hs Parcial , 1.30 hs parcial, 1,50 con prueba

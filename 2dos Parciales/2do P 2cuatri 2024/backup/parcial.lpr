@@ -1,4 +1,4 @@
-
+{
 program parcial;
 
 Const TOP = 100;
@@ -162,19 +162,14 @@ var
    Vc:TVregC;             car:char;
 begin
      Leer(mt,Vzona,n);
-     //Writeln('El codigo de zona con menor precio por cuadra es: ',Vzona[InciA(mt,n)]);
-     //InciB(mt,Vzona,n);
-     //InciC(mt,Vzona,n,Vc,nc);
-
-
-     writeln('ingrese datos');
-     readln(z1,car,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]);
-     writeln(z1,z2,mt[buscar(Vzona,z1,n),buscar(Vzona,z2,n)]:8:2);
+     Writeln('El codigo de zona con menor precio por cuadra es: ',Vzona[InciA(mt,n)]);
+     InciB(mt,Vzona,n);
+     InciC(mt,Vzona,n,Vc,nc);
      readln;
 end.
+}
 
 
-{
 Program Punto2;
 
 Const TOP = 3;
@@ -190,7 +185,7 @@ begin
         Suma:=0
      else
          begin
-              if (j>i) and (mt[i,j] = mt[j,i]) and (mt[i,j] > 0) then
+              if (mt[i,j] = mt[j,i]) and (mt[i,j] > 0) then
                  aux:=mt[i,j]
               else
                   aux:=0;
@@ -213,5 +208,5 @@ begin
      n:=3;
      writeln('La suma es:' ,Suma(mt,n-1,n,n));
      readln;
-end.                                                   }
+end.
 // De 2,15 hs Parcial , 1.30 hs parcial, 1,50 con prueba
