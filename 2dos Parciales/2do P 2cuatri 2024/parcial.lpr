@@ -1,4 +1,4 @@
-{
+
 program parcial;
 
 Const TOP = 100;
@@ -21,6 +21,7 @@ begin
      i:=1;
      while (i<n) and (cod <> Vzona[i]) do
            i:= i+1;
+
      if Vzona[i] = cod then
         Buscar:=i
      else
@@ -167,9 +168,9 @@ begin
      InciC(mt,Vzona,n,Vc,nc);
      readln;
 end.
-}
 
 
+{
 Program Punto2;
 
 Const TOP = 3;
@@ -209,4 +210,5 @@ begin
      writeln('La suma es:' ,Suma(mt,n-1,n,n));
      readln;
 end.
+}
 // De 2,15 hs Parcial , 1.30 hs parcial, 1,50 con prueba

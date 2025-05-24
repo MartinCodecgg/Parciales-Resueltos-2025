@@ -1,4 +1,4 @@
-{ PUNTO 1)
+        // PUNTO 1)
 program parcial;
 
 const TOP=100;
@@ -134,11 +134,11 @@ begin
      readln;
 end.
 
-}
+
 
 
 //PUNTO 2
-
+{
 Program Punto2;
 
 Const TOP= 100;
@@ -203,3 +203,4 @@ begin
          write(V[i]:4);
      readln;
 end.
+}

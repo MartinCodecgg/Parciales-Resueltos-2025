@@ -162,7 +162,7 @@ begin
              if mt[i,j] < min then
                 begin
                      min:=mt[i,j];
-                     pos:=i;
+                     pos:=J;
                 end;
              minFila(mt,i,j-1,min,pos);
         end;
