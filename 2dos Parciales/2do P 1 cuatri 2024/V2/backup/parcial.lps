@@ -10,91 +10,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Punto2"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="171"/>
-        <CursorPos X="22" Y="182"/>
-        <FoldState Value=" TLkN07x"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="161"/>
+        <CursorPos X="40" Y="161"/>
+        <FoldState Value=" TLkN07 T3kW0B1 PHD0k"/>
         <UsageCount Value="27"/>
-        <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="18">
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="162" Column="35" TopLine="151"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="164" Column="30" TopLine="153"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="179" Column="41" TopLine="167"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="195" Column="25" TopLine="176"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="170" Column="4" TopLine="159"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="176" Column="46" TopLine="161"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="181" Column="40" TopLine="170"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="174" Column="4" TopLine="163"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="180" Column="34" TopLine="146"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="183" Column="35" TopLine="171"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="182" Column="29" TopLine="168"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="184" Column="36" TopLine="171"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="186" Column="29" TopLine="181"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="176" Column="41" TopLine="168"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="181" Column="51" TopLine="167"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="177" Column="27" TopLine="170"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="207" Column="14" TopLine="186"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="205" Column="10" TopLine="187"/>
-      </Position>
-      <Position>
-        <Filename Value="parcial.lpr"/>
-        <Caret Line="195" Column="29" TopLine="187"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

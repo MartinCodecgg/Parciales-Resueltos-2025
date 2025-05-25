@@ -9,7 +9,7 @@ Procedure Indice(mt:TMT; i,j,n,elem:byte; var pos:byte);
 begin
      if j>0 then
         begin
-             if (mt[i,j] > elem ) and (mt[i,j] mod 2 <> 0) then   //Volver a leer el enunciado luego de hacer el ejercicio
+             if (mt[i,j] > elem ) and (mt[i,j] mod 2 <> 0) then
                 begin
                      elem:=mt[i,j];
                      pos:=i;
@@ -25,8 +25,8 @@ end;
 const
      mat:TMT = ((12,4,7,8),
                (5,14,9,2),
-               (10,3,6,7),
-               (1,13,11,4));
+               (10,13,6,7),
+               (1,1,11,4));
 
 var
     mt:TMT;      n,m,pos:byte;

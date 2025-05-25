@@ -9,12 +9,13 @@
         <Filename Value="punto2.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="39" Y="12"/>
+        <TopLine Value="13"/>
+        <CursorPos X="20" Y="29"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="2">
+    <JumpHistory HistoryIndex="1">
       <Position>
         <Filename Value="punto2.lpr"/>
         <Caret Line="37" Column="13" TopLine="16"/>
@@ -22,10 +23,6 @@
       <Position>
         <Filename Value="punto2.lpr"/>
         <Caret Line="29" Column="16" TopLine="21"/>
-      </Position>
-      <Position>
-        <Filename Value="punto2.lpr"/>
-        <Caret Line="12" Column="40" TopLine="19"/>
       </Position>
     </JumpHistory>
     <RunParams>
