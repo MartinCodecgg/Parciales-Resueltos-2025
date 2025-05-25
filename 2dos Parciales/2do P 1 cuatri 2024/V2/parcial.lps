@@ -8,11 +8,9 @@
       <Unit>
         <Filename Value="parcial.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Punto2"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="103"/>
-        <CursorPos Y="117"/>
-        <FoldState Value=" T2kM07y"/>
+        <TopLine Value="146"/>
+        <CursorPos X="14" Y="160"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit>

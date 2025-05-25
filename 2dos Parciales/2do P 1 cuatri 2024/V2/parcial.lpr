@@ -1,6 +1,7 @@
 // PUNTO 1)
 program parcial;
 
+
 const TOP=100;
 
 type
@@ -149,14 +150,14 @@ type
     end;
     TVreg = array[1..TOP] of Treg;
 
-{Function Suma(mt:TMT; i,j:byte):integer;
+Function Suma(mt:TMT; i,j:byte):integer;
 begin
      if j = 0 then
         suma:=0
      else
          suma:=mt[i,j] + suma(mt,i,j-1);
 end;
-}
+
 
 Procedure MinFila(mt:TMT; i,j:byte; var suma:integer; var pos:byte);
 begin
