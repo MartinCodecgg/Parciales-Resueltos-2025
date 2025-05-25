@@ -1,4 +1,4 @@
-{ PUNTO 1)
+// PUNTO 1)
 program parcial;
 
 const TOP=100;
@@ -134,9 +134,9 @@ begin
      readln;
 end.
 
-}
 
 
+{
 //PUNTO 2
 
 Program Punto2;
@@ -179,7 +179,7 @@ begin
      if i>0 then
         begin
              suma:=0;
-             pos:=m;
+             pos:=m; //Si voy a usar el mismo pos para calcular el minimo, debo asegurarme de pasarlo con un valor valido, por ej el primero que va a evaluar
              MinFila(mt,i,m,suma,pos);
              if suma > 0 then
                 begin
@@ -208,3 +208,4 @@ begin
          writeln(V[i].i,V[i].j:4);  //Solo dejo espacios al 2do, para separar del primero
      readln;
 end.
+}

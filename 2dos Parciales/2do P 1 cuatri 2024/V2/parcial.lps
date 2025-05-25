@@ -10,14 +10,19 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Punto2"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="180"/>
-        <CursorPos X="38" Y="187"/>
-        <FoldState Value=" TLkN07x"/>
+        <TopLine Value="103"/>
+        <CursorPos Y="117"/>
+        <FoldState Value=" T2kM07y"/>
         <UsageCount Value="27"/>
+        <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory>
+      <Position>
+        <Filename Value="parcial.lpr"/>
+        <Caret Line="12" Column="46"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

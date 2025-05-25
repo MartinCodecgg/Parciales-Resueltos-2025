@@ -1,4 +1,4 @@
-{ PUNTO 1)
+// PUNTO 1)
 program parcial;
 
 const TOP=100;
@@ -115,7 +115,6 @@ begin
               for j:=1 to 7 do
                   acum:=acum+mt[i,j];
 
-              writeln(mt[i,6]+mt[i,7]);
               if acum > x then
                  InsertaOrd(Vb,nb,Vcod[i],mt[i,6]+mt[i,7]);
          end;
@@ -134,9 +133,9 @@ begin
      readln;
 end.
 
-}
 
 
+{
 //PUNTO 2
 
 Program Punto2;
@@ -208,3 +207,4 @@ begin
          writeln(V[i].i,V[i].j:4);  //Solo dejo espacios al 2do, para separar del primero
      readln;
 end.
+}
